@@ -159,7 +159,7 @@ static void  init_cols(void)
 static matrix_row_t read_cols(void)
 {
     return ((PIND&(1<<5) ? 0 : ((matrix_row_t)1<<16)) |
-           (PINC&(1<<7) ? 0 : (1<<15)) |
+           (PINC&(1<<7) ? 0 : ((matrix_row_t)1<<15)) |
            (PINC&(1<<6) ? 0 : (1<<14)) |
            (PINB&(1<<7) ? 0 : (1<<13)) |
            (PIND&(1<<4) ? 0 : (1<<12)) |

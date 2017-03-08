@@ -69,7 +69,7 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         TRNS,TRNS,TRNS,               TRNS,               TRNS,TRNS,TRNS,TRNS,      TRNS,TRNS,TRNS)
 };
 
-static const uint16_t PROGMEM fn_actions[] = {
+static const action_t PROGMEM fn_actions[] = {
     [0] = ACTION_LAYER_MOMENTARY(1),
     [1] = ACTION_BACKLIGHT_STEP()
 };
@@ -95,7 +95,7 @@ action_t keymap_fn_to_action(uint8_t keycode)
     if (FN_INDEX(keycode) < FN_ACTIONS_SIZE) {
         action.code = pgm_read_word(&fn_actions[FN_INDEX(keycode)]);
     } else {
-        action.code = ACTION_NO;
+        action = (action_t)ACTION_NO;
     }
     return action;
 }
